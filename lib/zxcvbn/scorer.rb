@@ -73,12 +73,21 @@ module Zxcvbn
       # final result object
       Score.new(
         :password => password,
-        :entropy => min_entropy.round(3),
+        :entropy => round(min_entropy,3),
         :match_sequence => match_sequence,
-        :crack_time => crack_time.round(3),
+        :crack_time => round(crack_time,3),
         :crack_time_display => display_time(crack_time),
         :score => crack_time_to_score(crack_time)
       )
+    end
+
+    private
+    def round(num, digits)
+      if RUBY_VERSION.to_f < 1.9
+        (num * 10**digits).round.to_f / 10**digits
+      else
+        num.round(digits)
+      end
     end
   end
 end

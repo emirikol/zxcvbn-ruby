@@ -22,7 +22,7 @@ module Zxcvbn
           turns = 0
           shifted_count = 0
           loop do
-            prev_char = password[j-1]
+            prev_char = password.chars.to_a[j-1]
             found = false
             found_direction = -1
             cur_direction = -1

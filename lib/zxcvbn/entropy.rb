@@ -29,7 +29,7 @@ module Zxcvbn::Entropy
   end
 
   def sequence_entropy(match)
-    first_char = match.token[0]
+    first_char = match.token.chars.first
     base_entropy = if ['a', '1'].include?(first_char)
       1
     elsif first_char.match(/\d/)

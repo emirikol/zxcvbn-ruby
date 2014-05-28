@@ -25,7 +25,8 @@ module Zxcvbn
     end
 
     def lg(n)
-      ::Math.log(n, 2)
+      return -100000000 if RUBY_VERSION.to_f < 1.9 && n == 0 #return 1/0.0 * -1
+      ::Math.log(n) / ::Math.log(2)
     end
 
     def nCk(n, k)

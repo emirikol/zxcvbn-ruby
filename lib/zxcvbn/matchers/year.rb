@@ -7,7 +7,7 @@ module Zxcvbn
 
       def matches(password)
         result = []
-        re_match_all(YEAR_REGEX, password) do |match|
+        re_match_all(YEAR_REGEX, password) do |match, _|
           match.pattern = 'year'
           result << match
         end

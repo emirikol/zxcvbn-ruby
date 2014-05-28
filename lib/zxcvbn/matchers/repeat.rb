@@ -17,7 +17,7 @@ module Zxcvbn
                   :i => i,
                   :j => j-1,
                   :token => password[i...j],
-                  :repeated_char => password[i]
+                  :repeated_char => password.chars.to_a[i]
                 )
               end
               break

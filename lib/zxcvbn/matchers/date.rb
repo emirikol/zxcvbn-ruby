@@ -75,7 +75,7 @@ module Zxcvbn
             :day => ''
           }
           for i in 0...token.length
-            candidate[PATTERN_CHAR_TO_SYM[pattern[i]]] << token[i]
+            candidate[PATTERN_CHAR_TO_SYM[pattern.chars.to_a[i]]] << token[i]
           end
           candidate.each do |component, value|
             candidate[component] = value.to_i
